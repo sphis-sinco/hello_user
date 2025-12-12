@@ -15,12 +15,12 @@ class LanguageManager
 		if (languageFile == null)
 			return fallback ?? line;
 
-		line = line.replace(' ', '').replace('\n', '-').replace('\t', '_');
+		var convertedLine = line.replace(' ', '').replace('\n', '-').replace('\t', '_');
 
-		if (Reflect.hasField(languageFile.lines, line))
-			return Reflect.field(languageFile.lines, line);
+		if (Reflect.hasField(languageFile.lines, convertedLine))
+			return Reflect.field(languageFile.lines, convertedLine);
 		else
-			trace('Missing language file line: ' + line);
+			trace('Missing language file line: ' + convertedLine);
 
 		return fallback ?? line;
 	}
