@@ -1,3 +1,10 @@
 package helus.languages;
 
-typedef LanguageFile = {}
+typedef LanguageFile =
+{
+	settings:
+	{
+		display:String
+	},
+	lines:Dynamic
+}
