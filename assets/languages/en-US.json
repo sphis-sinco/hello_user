@@ -2,5 +2,7 @@
     "settings": {
         "display": "English (US)"
     },
-    "lines": {}
+    "lines": {
+        "testingline-it'sjustcoollol" : "Testing Line Cause it's just cool"
+    }
 }
