@@ -12,7 +12,8 @@ class InitState extends FlxState
 		LanguageManager.language = 'en-US';
 		LanguageManager.reloadLanguage();
 
-		FlxG.switchState(() -> new helus.tests.LanguageTest());
+		// FlxG.switchState(() -> new helus.tests.LanguageTest());
+		FlxG.switchState(() -> new helus.scenes.intro.MakeAChoice());
 	}
 
 	override public function update(elapsed:Float)
