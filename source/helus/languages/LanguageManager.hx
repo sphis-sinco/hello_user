@@ -16,9 +16,16 @@ class LanguageManager
 			return fallback ?? line;
 
 		var convertedLine = line.toLowerCase().replace(' ', '-').replace('\n', '_').replace('\t', '|');
+		var json = languageFile.lines;
 
-		if (Reflect.hasField(languageFile.lines, convertedLine))
-			return Reflect.field(languageFile.lines, convertedLine);
+		if (convertedLine.split('/').length > 0)
+			for (path in convertedLine.split('/'))
+			{
+				json = Reflect.field(json, path);
+			}
+
+		if (Reflect.hasField(json, convertedLine))
+			return Reflect.field(json, convertedLine);
 		else
 			trace('Missing language file line: ' + convertedLine);
 

@@ -7,8 +7,8 @@ import flixel.FlxState;
 
 class MakeAChoice extends FlxState
 {
-	public var helloText:FlxText = TextManager.makeTranslatedText('hello [[user]]', FlxPoint.get(20, 20));
-	public var makeAChoice:FlxText = TextManager.makeTranslatedText('make a choice', FlxPoint.get(480, 270));
+	public var helloText:FlxText = TextManager.makeTranslatedText('intro/hello [[user]]', FlxPoint.get(20, 20));
+	public var makeAChoice:FlxText = TextManager.makeTranslatedText('intro/make a choice', FlxPoint.get(480, 270));
 
 	override function create()
 	{
