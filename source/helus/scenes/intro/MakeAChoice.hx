@@ -20,22 +20,22 @@ class MakeAChoice extends Scene
 		add(helloText);
 		add(makeAChoice);
 
-		waitThenRun(0, () ->
+		waitThenRun(0, function()
 		{
 			helloText.alpha = 0;
 			makeAChoice.alpha = 0;
 		});
-		waitThenRun(1, () ->
+		waitThenRun(5, function()
 		{
-			FlxTween.tween(helloText, {alpha: 1}, 1, {
+			FlxTween.tween(helloText, {alpha: 1}, 2, {
 				ease: FlxEase.smootherStepInOut
 			});
-		});
-		waitThenRun(2, () ->
+		}, 'helloText');
+		waitThenRun(3, function()
 		{
-			FlxTween.tween(makeAChoice, {alpha: 1}, 1, {
+			FlxTween.tween(makeAChoice, {alpha: 1}, 2, {
 				ease: FlxEase.smootherStepInOut
 			});
-		});
+		}, 'makeAChoice');
 	}
 }

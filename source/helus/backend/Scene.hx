@@ -12,10 +12,13 @@ class Scene extends FlxState
 		super();
 	}
 
-	public function waitThenRun(time:Float, whenDone:Void->Void, ?loops:Int = 1, ?applyCurrentTimerTime:Bool = true)
+	public function waitThenRun(time:Float, whenDone:Void->Void, ?applyCurrentTimerTime:Bool = true, ?functionName:String)
 	{
-		if (applyCurrentTimerTime)
+        trace('Waiting ${(applyCurrentTimerTime ? currentTimerTime : 0) + time} to run ${(functionName != null ? functionName : '' + whenDone)}');
+
+        if (applyCurrentTimerTime)
 			currentTimerTime += time;
-		new FlxTimer().start((applyCurrentTimerTime ? currentTimerTime : 0) + time, t -> whenDone, loops);
+
+		FlxTimer.wait((applyCurrentTimerTime ? currentTimerTime : 0) + time, whenDone);
 	}
 }
