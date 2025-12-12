@@ -13,7 +13,7 @@ class LanguageManager
 	public static function getLine(line:String, ?fallback:String):String
 	{
 		if (languageFile == null)
-			return fallback;
+			return fallback ?? line;
 
 		line = line.replace(' ', '').replace('\n', '-').replace('\t', '_');
 
@@ -22,7 +22,7 @@ class LanguageManager
 		else
 			trace('Missing language file line: ' + line);
 
-		return fallback;
+		return fallback ?? line;
 	}
 
 	public static function reloadLanguage()
