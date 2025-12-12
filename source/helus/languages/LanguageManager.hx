@@ -15,7 +15,7 @@ class LanguageManager
 		if (languageFile == null)
 			return fallback ?? line;
 
-		var convertedLine = line.replace(' ', '').replace('\n', '-').replace('\t', '_');
+		var convertedLine = line.toLowerCase().replace(' ', '').replace('\n', '-').replace('\t', '_');
 
 		if (Reflect.hasField(languageFile.lines, convertedLine))
 			return Reflect.field(languageFile.lines, convertedLine);
