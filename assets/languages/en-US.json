@@ -3,7 +3,9 @@
         "display": "English (US)"
     },
     "lines": {
-        "hello-[[user]]": "Hello [[USER]]!!",
-        "make-a-choice": "Please make a choice!!"
+        "intro": {
+            "hello-[[user]]": "Hello [[USER]]!!",
+            "make-a-choice": "Please make a choice!!"
+        }
     }
 }

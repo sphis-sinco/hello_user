@@ -17,17 +17,29 @@ class LanguageManager
 
 		var convertedLine = line.toLowerCase().replace(' ', '-').replace('\n', '_').replace('\t', '|');
 		var json = languageFile.lines;
+		var current_path = '.';
 
-		if (convertedLine.split('/').length > 0)
-			for (path in convertedLine.split('/'))
+		var splitConvertedLine = convertedLine.split('/');
+		if (splitConvertedLine.length > 0)
+		{
+			var i = 0;
+			for (path in splitConvertedLine)
 			{
-				json = Reflect.field(json, path);
+				if (i < splitConvertedLine.length - 1)
+				{
+					json = Reflect.field(json, path);
+					current_path += '/' + path;
+				}
+				i++;
 			}
+
+			convertedLine = splitConvertedLine[splitConvertedLine.length - 1];
+		}
 
 		if (Reflect.hasField(json, convertedLine))
 			return Reflect.field(json, convertedLine);
 		else
-			trace('Missing language file line: ' + convertedLine);
+			trace('Missing language file line: $current_path/$convertedLine');
 
 		return fallback ?? line;
 	}
