@@ -3,6 +3,6 @@
         "display": "English (US)"
     },
     "lines": {
-        "testingline-it'sjustcoollol" : "Testing Line Cause it's just cool"
+        "hello-[[user]]" : "Hello [[USER]]!!"
     }
 }
